@@ -25,6 +25,12 @@ app.use(
     res: express.Response,
     next: express.NextFunction
   ): void => {
+    console.info({
+      method: req.method,
+      url: req.url,
+      statusCode: res.statusCode,
+    });
+
     if (req.originalUrl === '/webhook') {
       next();
     } else {
